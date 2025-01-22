@@ -7,11 +7,14 @@ WORKDIR /app
 # Destino /app
 COPY package.json ./
 
-# Installar dependencias
+# Instalar dependencias
 RUN npm install
 
 # Destino /app
-COPY app.js  ./
+COPY .  .
+
+# Ejecutar testing
+RUN npm run test
 
 # Comando run app.js
 CMD ["node", "app.js"]
