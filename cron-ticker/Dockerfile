@@ -1,20 +1,33 @@
+# BUILDX
+# docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 \
+#    -t klerith/cron-ticker:latest --push .
+
 # /app /usr /lib
+# FROM --platform=linux/amd64 node:22.12.0-alpine3.21
+# FROM --platform=$BUILDPLATFORM node:22.12.0-alpine3.21
 FROM node:22.12.0-alpine3.21
 
-# cd /app
-WORKDIR /app
+# cd app
+WORKDIR  /app
 
-# Destino /app
+# Dest /app
 COPY package.json ./
 
-# Instalar dependencias
+# Instalar las dependencias
 RUN npm install
 
-# Destino /app
-COPY .  .
+# Dest /app
+COPY . .
 
-# Ejecutar testing
+# Realizar testing
 RUN npm run test
 
-# Comando run app.js
-CMD ["node", "app.js"]
+# Eliminar archivos y directorios no necesarios en PROD
+RUN rm -rf tests && rm -rf node_modules
+
+# Unicamente las dependencias de prod
+RUN npm install --prod
+
+
+# Comando run de la imagen
+CMD [ "node", "app.js" ]

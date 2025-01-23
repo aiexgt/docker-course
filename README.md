@@ -29,6 +29,15 @@
 ### View logs
 `docker container logs -f ${id}`
 
+### Inspect container
+`docker exec -it ${id} /bin/sh`
+
+### Change image name
+`docker image tag ${old_name} ${new_name}`
+
+### Push image
+`docker push ${repo}`
+
 ## Specific Commands
 
 ### Create container mariadb
@@ -83,3 +92,14 @@ docker container run `
 -dp 8080:80 `
 dpage/pgadmin4:6.17
 ```
+
+## BuildX
+
+### Pull BuildX
+`docker buildx create --name mybuilder --driver docker-container --bootstrap`
+
+### Default build
+`docker buildx use mybuilder`
+
+### Create image and push
+`docker build --platform linux/amd64,linux/arm64,linux/arm/v7 --tag ${image} --push .`
