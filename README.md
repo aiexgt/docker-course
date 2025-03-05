@@ -102,4 +102,4 @@ dpage/pgadmin4:6.17
 `docker buildx use mybuilder`
 
 ### Create image and push
-`docker build --platform linux/amd64,linux/arm64,linux/arm/v7 --tag ${image} --push .`
+`docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 --tag ${image} --push .`
