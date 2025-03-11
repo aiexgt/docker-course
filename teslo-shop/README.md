@@ -22,6 +22,7 @@ http://localhost:3000/api/seed
 ```
 
 
+
 # Production notes:
 
 Ejecutar este comando
@@ -29,8 +30,8 @@ Ejecutar este comando
 docker compose -f docker-compose.prod.yml build
 ```
 
-
-## Docker Repo Name
-[klerith/teslo-shop-cors:latest](https://hub.docker.com/repository/docker/klerith/teslo-shop-cors/general)
-
-docker buildx build --platform linux/amd64,linux/arm64 -t klerith/teslo-shop-cors:1.0.0 --push .
+```
+docker buildx build \
+--platform linux/amd64,linux/arm64 \
+-t registry.digitalocean.com/devtalles-registry-dev/teslo-shop:1.2.0 --push .
+```

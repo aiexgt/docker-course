@@ -51,4 +51,17 @@ import { MessagesWsModule } from './messages-ws/messages-ws.module';
 
   ],
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {
+    console.log( "APP_VERSION: "+ process.env.APP_VERSION )
+    console.log( "STAGE: "+ process.env.STAGE )
+    console.log( "DB_PASSWORD: "+ process.env.DB_PASSWORD )
+    console.log( "DB_NAME: "+ process.env.DB_NAME )
+    console.log( "DB_HOST: "+ process.env.DB_HOST )
+    console.log( "DB_PORT: "+ process.env.DB_PORT )
+    console.log( "DB_USERNAME: "+ process.env.DB_USERNAME )
+    console.log( "PORT: "+ process.env.PORT )
+    console.log( "HOST_API: "+ process.env.HOST_API )
+    console.log( "JWT_SECRET: "+ process.env.JWT_SECRET )
+  }
+}

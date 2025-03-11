@@ -10,7 +10,7 @@ services:
       target: ${STAGE}
       dockerfile: Dockerfile
     
-    image: aiexgt/teslo-shop:2.5.0
+    image: aiexgt/teslo-shop-backend:2.5.0
     container_name: nest-app
     ports:
       - ${PORT}:${PORT}
